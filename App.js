@@ -1,20 +1,28 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import Aleatorios from "./src/components/aleatorios";
+import Capturados from "./src/components/capturados";
+import Favoritos from "./src/components/favoritos";
+import Lista from "./src/components/lista";
+import Pokemon from "./src/components/pokemon";
+import Usuario from "./src/components/usuario";
+
+const Tab = createBottomTabNavigator();
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+      <NavigationContainer>
+      <Tab.Navigator>
+      <Tab.Screen name="Lista" component={Lista} />
+      <Tab.Screen name="Aleatorios" component={Aleatorios} />
+      <Tab.Screen name="Capturados" component={Capturados} />
+      <Tab.Screen name="Favoritos" component={Favoritos} />
+      <Tab.Screen name="Usuario" component={Usuario} />
+      </Tab.Navigator>
+      </NavigationContainer>
+    );  
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+})
